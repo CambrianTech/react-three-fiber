@@ -277,6 +277,7 @@ export const useCanvas = (props: UseCanvasProps): PointerEvents => {
   const prepareRay = useCallback(({ clientX, clientY }) => {
     if (clientX !== void 0) {
       const { left, right, top, bottom } = state.current.size
+      clientX = clientX - 100
       mouse.set(((clientX - left) / (right - left)) * 2 - 1, -((clientY - top) / (bottom - top)) * 2 + 1)
       defaultRaycaster.setFromCamera(mouse, state.current.camera)
     }
